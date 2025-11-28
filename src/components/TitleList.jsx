@@ -1,6 +1,4 @@
-import React from 'react';
-import $ from 'jquery';
-import Item from './Item.jsx';
+
 
 // Title List Container
 
