@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
+
+/* VARIABLES CONVERTED TO FIXED VALUES */
+:root {
+    --red: #e50914;
+    --black: #221f1f;
+    --blackblack: #000000;
+    --grey: #f5f5f1;
+    --white: #ffffff;
+    --font: 'Lato', sans-serif;
+}
+
+/* GENERAL */
+body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font);
+}
+
+/* TYPOGRAPHY */
+h2,
+.TitleList .Title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 1em;
+}
+
+p {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+
+/* GRADIENT (converted from mixin) */
+.Header {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+    display: flex;
+    padding: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    box-sizing: border-box;
+    z-index: 5;
+}
+
+/* LOGO */
+.Logo {
+    width: 151px;
+    height: 41px;
+    margin-right: 10px;
+    transition: margin .125s ease;
+}
+
+.Logo svg {
+    transform: scale(.5);
+    transform-origin: 0 0;
+}
+
+.Logo svg path {
+    fill: var(--red);
+    transition: fill .125s ease;
+}
+
+.Logo:hover {
+    cursor: pointer;
+    margin-top: 2px;
+}
+
+.Logo:hover svg path {
+    fill: var(--white) !important;
+}
+
+/* NAVIGATION */
+.Navigation ul {
+    display: flex;
+    height: 37px;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.Navigation ul li {
+    font-weight: 400;
+    padding: 7px 10px;
+    font-size: 14px;
+    transition: background .125s ease;
+    border-radius: 3px;
+}
+
+.Navigation ul li:hover {
+    background: var(--red);
+    cursor: pointer;
+}
+
+/* SEARCH */
+.Search {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    pointer-events: none;
+}
+
+.Search input {
+    font-family: var(--font);
+    font-weight: 300;
+    font-size: 14px;
+    height: 37px;
+    width: 20%;
+    background: transparent;
+    color: var(--white);
+    border: 2px solid rgba(245, 245, 241, .1);
+    outline: none;
+    border-radius: 37px;
+    padding: 0 10px;
+    pointer-events: all;
+    transition: border .25s ease, width .125s ease .125s;
+}
+
+.Search input:focus {
+    border: 2px solid var(--red);
+    width: 30%;
+}
+
+/* USER PROFILE */
+.UserProfile {
+    margin-left: auto;
+}
+
+.UserProfile .User {
+    display: flex;
+}
+
+.UserProfile .User .image {
+    border-radius: 44px;
+    margin-left: 10px;
+    overflow: hidden;
+    width: 44px;
+    height: 44px;
+    box-sizing: border-box;
+    border: 3px solid transparent;
+    transition: border .125s ease;
+}
+
+.UserProfile .User .image img {
+    width: 100%;
+    display: block;
+}
+
+.UserProfile .User .name {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 300;
+    height: 44px;
+}
+
+.UserProfile .User:hover {
+    cursor: pointer;
+}
+
+.UserProfile .User:hover .image {
+    border: 3px solid var(--red);
+}
+
+.UserProfile-menu {
+    display: none;
+}
+
+/* HERO SECTION */
+.Hero {
+    width: 100%;
+    position: relative;
+    background-size: cover;
+    min-height: 800px;
+}
+
+.Hero .content {
+    position: relative;
+    z-index: 4;
+    width: 500px;
+    left: 10vw;
+    top: 10vw;
+}
+
+.Hero .content .logo {
+    max-width: 400px;
+    display: block;
+    position: relative;
+    left: -5px;
+}
+
+.Hero .content .button-wrapper {
+    display: flex;
+    width: 400px;
+    margin-top: 30px;
+}
+
+.Hero .content .button-wrapper .Button:first-child {
+    margin-right: 10px;
+}
+
+.Hero .overlay {
+    background: linear-gradient(to bottom, rgba(34, 31, 31, 1) 0%, rgba(34, 31, 31, 0) 100%);
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: rotate(180deg);
+}
+
+/* BUTTON */
+.Button {
+    background: transparent;
+    display: flex;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--white);
+    padding: 20px;
+    box-sizing: border-box;
+    border: 2px solid rgba(245, 245, 241, .2);
+    border-radius: 44px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: border .125s ease, background .125s ease;
+}
+
+.Button:hover {
+    border: 2px solid var(--grey);
+}
+
+.Button[data-primary='true'] {
+    border: 2px solid var(--red);
+}
+
+.Button[data-primary='true']:hover {
+    background: var(--red);
+}
+
+/* TITLE LIST */
+.Hero~.TitleList:nth-child(3) {
+    margin-top: -10vw;
+    position: relative;
+    z-index: 4;
+}
+
+.TitleList {
+    padding: 20px 40px;
+    box-sizing: border-box;
+    transition: opacity 3s ease;
+    opacity: 0;
+}
+
+.TitleList .titles-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    width: calc(100vw - 80px);
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.TitleList[data-loaded='true'] {
+    opacity: 1;
+}
+
+/* ITEM */
+.Item {
+    width: calc(20% - 10px);
+    min-width: calc(20% - 10px);
+    background-color: var(--blackblack);
+    flex: 1 0 auto;
+    background-position: center;
+    background-size: 100%;
+    height: 200px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    margin-right: 10px;
+    transition: background 1s ease;
+}
+
+.Item:nth-child(n+6) {
+    margin-top: 20px;
+}
+
+.Item:last-child {
+    margin-right: 0;
+}
+
+.Item .overlay {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .75) 0%, rgba(0, 0, 0, 0) 100%);
+    padding: 20px;
+    position: relative;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .125s ease;
+}
+
+.Item .overlay .title {
+    font-size: 22px;
+    font-weight: 200;
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+
+.Item .overlay .rating {
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity .25s ease .125s;
+}
+
+.Item .overlay .plot {
+    font-size: 14px;
+    margin-top: 100px;
+    font-weight: 300;
+    line-height: 1.6;
+    opacity: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: margin .25s ease .125s, opacity .25s ease .25s;
+}
+
+.Item:hover {
+    background-size: 150%;
+}
+
+.Item:hover .overlay {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.Item:hover .overlay .plot {
+    margin-top: 10px;
+    opacity: 1;
+}
+
+.Item:hover .overlay .title,
+.Item:hover .overlay .rating,
+.Item:hover .overlay .ListToggle {
+    opacity: 1;
+}
+
+/* LIST TOGGLE */
+.ListToggle {
+    border: 2px solid rgba(255, 255, 255, .2);
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    border-radius: 32px;
+    overflow: hidden;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    opacity: 0;
+}
+
+.ListToggle:hover {
+    border: 2px solid var(--white);
+}
+
+.ListToggle:hover div {
+    top: -32px;
+}
+
+.ListToggle[data-toggled="true"] {
+    background: var(--red);
+    border: 2px solid var(--red);
+}
+
+.ListToggle[data-toggled="true"] div {
+    top: -32px;
+}
+
+.ListToggle div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 64px;
+    width: 32px;
+    transition: .125s ease;
+}
+
+.ListToggle div i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+}
