@@ -1,16 +1,16 @@
-////////////
-// Header //
-////////////
+import React from "react";
+import Logo from "./Logo";
+import Navigation from "./Navigation";
+import Search from "./Search";
+import UserProfile from "./UserProfile";
 
-var Header = React.createClass({
-	render: function() {
-		return (
-			<header className="Header">
-				<Logo />
-				<Navigation />
-				<Search onSubmit={this.props.onSubmit} />
-				<UserProfile />
-			</header>
-		);
-	}
-});
+export default function Header({ onSubmit }) {
+  return (
+    <header className="Header">
+      <Logo />
+      <Navigation />
+      <Search onSubmit={onSubmit} />
+      <UserProfile />
+    </header>
+  );
+}
