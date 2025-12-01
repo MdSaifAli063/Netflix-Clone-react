@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import TitleList from "./components/TitleList";
 import ListToggle from "./components/ListToggle";
+import Item from "./components/Item";
 
 
 export default function App() {
@@ -37,7 +38,7 @@ export default function App() {
       <Header onSubmit={performSearch} />
       <Hero />
       <ListToggle />
-      
+      <Item/>
 
       <TitleList
         title="Top TV picks for Jack"
