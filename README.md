@@ -2,4 +2,4 @@
 
 This is a Netflix clone !
 
-Currently i am working in this.
+Created with React + JavaScript
