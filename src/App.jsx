@@ -2,20 +2,18 @@ import React, { useState } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import TitleList from "./components/TitleList";
-import ListToggle from "./components/ListToggle";
-import Item from "./components/Item";
-
+import "./App.css"; // added to load styles
 
 export default function App() {
   const apiKey = "87dfa1c669eea853da609d4968d294be";
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({}); // changed from [] to {}
 
   const performSearch = async (e) => {
     e.preventDefault();
 
     // Get input value directly
     const val = e.target.querySelector("input").value;
-    if (!val.trim()) return;
+    if (!val || !val.trim()) return;
 
     const requestUrl =
       "https://api.themoviedb.org/3/search/multi?query=" +
@@ -37,8 +35,36 @@ export default function App() {
     <div>
       <Header onSubmit={performSearch} />
       <Hero />
-      <ListToggle />
-      <Item/>
+
+      {/* Render search results if available */}
+      {data && data.results && data.results.length > 0 && (
+        <div className="TitleList" data-loaded={true}>
+          <div className="Title">
+            <h1>Search results</h1>
+            <div className="titles-wrapper">
+              {data.results.slice(0, 5).map((t) => {
+                const backDrop = t.backdrop_path
+                  ? "https://image.tmdb.org/t/p/original" + t.backdrop_path
+                  : "";
+                const name = t.name || t.title || t.original_title || "Untitled";
+                return (
+                  <div key={t.id} style={{ width: "calc(20% - 10px)" }}>
+                    <img
+                      src={
+                        backDrop ||
+                        "https://via.placeholder.com/300x170?text=No+Image"
+                      }
+                      alt={name}
+                      style={{ width: "100%", display: "block" }}
+                    />
+                    <div style={{ color: "#fff" }}>{name}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
 
       <TitleList
         title="Top TV picks for Jack"
@@ -50,15 +76,15 @@ export default function App() {
       />
       <TitleList
         title="Most watched in Horror"
-        url="genre/27/movies?sort_by=popularity.desc&page=1"
+        url="discover/movie?with_genres=27&sort_by=popularity.desc&page=1"
       />
       <TitleList
         title="Sci-Fi greats"
-        url="genre/878/movies?sort_by=popularity.desc&page=1"
+        url="discover/movie?with_genres=878&sort_by=popularity.desc&page=1"
       />
       <TitleList
         title="Comedy magic"
-        url="genre/35/movies?sort_by=popularity.desc&page=1"
+        url="discover/movie?with_genres=35&sort_by=popularity.desc&page=1"
       />
     </div>
   );
