@@ -73,25 +73,53 @@ p {
     fill: var(--white) !important;
 }
 
-/* NAVIGATION */
-.Navigation ul {
+/* NAVIGATION (updated styling for clearer, Netflix-like navbar) */
+.Navigation {
     display: flex;
-    height: 37px;
     align-items: center;
-    padding: 0 10px;
+    margin-left: 14px;
+    /* allow nav to take minimal space; header layout remains controlled by .Header */
 }
 
-.Navigation ul li {
-    font-weight: 400;
-    padding: 7px 10px;
+.Navigation nav ul {
+    display: flex;
+    gap: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0 6px;
+    align-items: center;
+    height: 37px;
+}
+
+.Navigation nav ul li {
+    margin: 0;
+}
+
+/* link styling (use anchor so keyboard + screenreaders work naturally) */
+.nav-link {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-weight: 500;
     font-size: 14px;
-    transition: background .125s ease;
-    border-radius: 3px;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: background .12s ease, color .12s ease, transform .08s ease;
 }
 
-.Navigation ul li:hover {
-    background: var(--red);
-    cursor: pointer;
+.nav-link:hover,
+.nav-link:focus {
+    background: rgba(255, 255, 255, 0.04);
+    color: #fff;
+    outline: none;
+    transform: translateY(-1px);
+}
+
+/* active state */
+.nav-link.active {
+    color: var(--red);
+    background: rgba(229, 9, 20, 0.06);
+    font-weight: 700;
 }
 
 /* SEARCH */
@@ -128,10 +156,14 @@ p {
 /* USER PROFILE */
 .UserProfile {
     margin-left: auto;
+    position: relative;
 }
 
 .UserProfile .User {
     display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
 }
 
 .UserProfile .User .image {
@@ -146,8 +178,10 @@ p {
 }
 
 .UserProfile .User .image img {
-    width: 100%;
-    display: block;
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    border-radius: 44px;
 }
 
 .UserProfile .User .name {
@@ -166,8 +200,75 @@ p {
     border: 3px solid var(--red);
 }
 
+/* USER PROFILE MENU (override and layout) */
 .UserProfile-menu {
+    position: absolute;
+    right: 0;
+    top: 64px;
+    background: rgba(20, 20, 20, 0.98);
+    padding: 12px;
+    border-radius: 6px;
+    min-width: 260px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    z-index: 10;
     display: none;
+    /* default hidden */
+    color: #fff;
+}
+
+/* show menu when open class or hover (desktop) */
+.UserProfile.open .UserProfile-menu,
+.UserProfile:hover .UserProfile-menu {
+    display: block;
+}
+
+/* profile switcher list */
+.UserProfileSwitch ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.UserProfileSwitch ul li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 6px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.UserProfileSwitch ul li:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.UserProfile-image img {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+/* user navigation */
+.UserNavigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.UserNavigation ul li {
+    padding: 8px 4px;
+    color: #bdbdbd;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.UserNavigation ul li:hover {
+    color: #fff;
 }
 
 /* HERO SECTION */
@@ -397,4 +498,88 @@ p {
     justify-content: center;
     height: 32px;
     width: 32px;
+}
+
+/* FOOTER */
+.Footer {
+    background: #141414;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 40px 20px;
+    margin-top: 40px;
+}
+
+.Footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.Footer-links {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.Footer-links .col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.Footer-links .col ul li {
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.Footer-links .col ul li:hover {
+    color: #fff;
+}
+
+.Footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    padding-top: 20px;
+    margin-top: 10px;
+}
+
+.Footer .language {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.Footer .language select {
+    background: #000;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 6px 8px;
+    border-radius: 4px;
+}
+
+.Footer .copyright {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+}
+
+/* small screens */
+@media (max-width: 800px) {
+    .TitleList .titles-wrapper {
+        width: calc(100vw - 40px);
+        justify-content: center;
+    }
+
+    .Item {
+        width: calc(50% - 10px);
+        min-width: calc(50% - 10px);
+    }
+
+    .Footer-links {
+        gap: 20px;
+    }
 }
