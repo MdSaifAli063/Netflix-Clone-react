@@ -6,11 +6,24 @@ const ListToggle = () => {
   return (
     <div
       className={`ListToggle ${toggled ? "active" : ""}`}
-      onClick={() => setToggled(!toggled)}
+      onClick={(e) => {
+        e.stopPropagation();
+        setToggled(!toggled);
+      }}
+      role="button"
+      aria-pressed={toggled}
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          setToggled(!toggled);
+        }
+      }}
       data-toggled={toggled}
     >
       <div>
-        {toggled ? "✔" : "+"}
+        <i aria-hidden="true">+</i>
+        <i aria-hidden="true">✔</i>
       </div>
     </div>
   );
