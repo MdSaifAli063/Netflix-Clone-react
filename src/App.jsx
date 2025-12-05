@@ -86,6 +86,61 @@ export default function App() {
         title="Comedy magic"
         url="discover/movie?with_genres=35&sort_by=popularity.desc&page=1"
       />
+
+      {/* Footer - Netflix-style */}
+      <footer className="Footer">
+        <div className="Footer-inner">
+          <div className="Footer-links">
+            <div className="col">
+              <ul>
+                <li>FAQ</li>
+                <li>Investor Relations</li>
+                <li>Privacy</li>
+                <li>Speed Test</li>
+              </ul>
+            </div>
+            <div className="col">
+              <ul>
+                <li>Help Center</li>
+                <li>Jobs</li>
+                <li>Cookie Preferences</li>
+                <li>Legal Notices</li>
+              </ul>
+            </div>
+            <div className="col">
+              <ul>
+                <li>Account</li>
+                <li>Ways to Watch</li>
+                <li>Corporate Information</li>
+                <li>Only on Netflix</li>
+              </ul>
+            </div>
+            <div className="col">
+              <ul>
+                <li>Media Center</li>
+                <li>Terms of Use</li>
+                <li>Contact Us</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="Footer-bottom">
+            <div className="language">
+              <label htmlFor="lang">Language</label>
+              <select id="lang" defaultValue="en">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+              </select>
+            </div>
+
+            <div className="copyright">
+              © {new Date().getFullYear()} Netflix-clone, Inc.
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
