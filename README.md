@@ -121,9 +121,3 @@ Contributions welcome. Open an issue or submit a PR. Keep changes focused and do
 MIT
 
 ---
-
-If you'd like, I can:
-
-- Wire the environment variable into App.jsx for you,
-- Split Footer and UserProfile into separate components,
-- Add a demo GIF or deploy instructions.
