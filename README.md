@@ -16,6 +16,44 @@ A lightweight, responsive Netflix-style UI built with React. Browse discover lis
 - Footer with links and language selector
 - Safe fallbacks for missing images/data and keyboard accessibility
 
+## 📸 Preview
+
+Quick local preview
+
+- Start the dev server:
+  ```
+  npm run dev
+  # or
+  npm start
+  ```
+- Open the app at the URL shown by your dev server (commonly http://localhost:3000).
+
+Screenshots
+
+- Homepage / Hero
+  ![Homepage preview](https://via.placeholder.com/1000x360?text=Netflix+Clone+Home)
+- Search results
+  ![Search preview](https://via.placeholder.com/1000x360?text=Search+Results+Preview)
+- Profile menu
+  ![Profile preview](https://via.placeholder.com/420x240?text=Profile+Menu)
+
+GIF demo
+
+- Short demo (placeholder GIF):  
+  ![Demo GIF](https://via.placeholder.com/900x300?text=Demo+GIF+Placeholder)
+
+How to preview a title in the app
+
+1. Use the search box in the header to find a movie or TV show (the app queries TMDB).
+2. Hover any Item tile to reveal its overlay (title, rating, plot).
+3. Click the circular ListToggle (top-right of the tile) to toggle the quick action state.
+4. Switch user profiles from the top-right profile menu to see profile persistence.
+
+Notes
+
+- The images above are placeholders — replace them with real screenshots or GIFs from your local runs or hosted demo.
+- If you want, I can add a small "Preview" component in-app that opens a modal with larger artwork and details for a clicked Item.
+
 ## 🔧 Prerequisites
 
 - Node.js >= 14
