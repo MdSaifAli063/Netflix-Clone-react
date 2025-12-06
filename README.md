@@ -35,7 +35,7 @@ Screenshots
 - Search results
   ![Search preview](https://via.placeholder.com/1000x360?text=Search+Results+Preview)
 - Profile menu
-  ![Profile preview](https://via.placeholder.com/420x240?text=Profile+Menu)
+  ![Profile preview](https://github.com/MdSaifAli063/Netflix-Clone-react/blob/51dca2f22c2eeb45c0371aaf461c308a3ad438c7/Screenshot%202025-12-07%20001954_edited.png)
 
 GIF demo
 
