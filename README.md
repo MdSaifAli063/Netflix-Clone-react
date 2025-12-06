@@ -31,7 +31,7 @@ Quick local preview
 Screenshots
 
 - Homepage / Hero
-  ![Homepage preview](https://via.placeholder.com/1000x360?text=Netflix+Clone+Home)
+  ![Homepage preview](https://github.com/MdSaifAli063/Netflix-Clone-react/blob/0ad9eb6455cbc3d7b962afd9fdd1e20e53ec5278/Screenshot%202025-12-07%20001829_edited.png)
 - Search results
   ![Search preview](https://via.placeholder.com/1000x360?text=Search+Results+Preview)
 - Profile menu
