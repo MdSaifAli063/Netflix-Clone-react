@@ -33,7 +33,7 @@ Screenshots
 - Homepage / Hero
   ![Homepage preview](https://github.com/MdSaifAli063/Netflix-Clone-react/blob/0ad9eb6455cbc3d7b962afd9fdd1e20e53ec5278/Screenshot%202025-12-07%20001829_edited.png)
 - Search results
-  ![Search preview](https://via.placeholder.com/1000x360?text=Search+Results+Preview)
+  ![Search preview](https://github.com/MdSaifAli063/Netflix-Clone-react/blob/f7b0270bca66b89444efeeed56a976e01dfab105/Screenshot%202025-12-07%20002048_edited.png)
 - Profile menu
   ![Profile preview](https://github.com/MdSaifAli063/Netflix-Clone-react/blob/51dca2f22c2eeb45c0371aaf461c308a3ad438c7/Screenshot%202025-12-07%20001954_edited.png)
 
