@@ -16,6 +16,7 @@ A lightweight, responsive Netflix-style UI built with React. Browse discover lis
 - Footer with links and language selector
 - Safe fallbacks for missing images/data and keyboard accessibility
 
+
 ## 📸 Preview
 
 Quick local preview
