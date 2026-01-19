@@ -45,6 +45,7 @@ Screenshots
 - npm or yarn
 - TMDB API Key (https://www.themoviedb.org/)
 
+
 ## 🚀 Quick start
 
 1. Clone the repo:
