@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
 export default function Navigation() {
-  const items = ["Browse", "My list", "Top picks", "Recent"];
+  const items = ["Home", "TV Shows", "Movies", "New & Popular", "My List", "Browse by Languages"];
   const [active, setActive] = useState(0);
 
   return (
-    <div id="navigation" className="Navigation">
+    <div className="Navigation">
       <nav aria-label="Main navigation">
         <ul>
           {items.map((label, i) => (
@@ -17,15 +17,6 @@ export default function Navigation() {
                   e.preventDefault();
                   setActive(i);
                 }}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    setActive(i);
-                  }
-                }}
-                role="button"
-                tabIndex={0}
-                aria-pressed={active === i}
               >
                 {label}
               </a>
