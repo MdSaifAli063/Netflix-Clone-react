@@ -1,30 +1,60 @@
 import React from "react";
 import ListToggle from "./ListToggle";
 
-const Item = ({ title = "Untitled", score = "N/A", overview = "", backdrop = "" }) => {
-  // fallback placeholder when no backdrop provided
-  const placeholder = "https://via.placeholder.com/600x340?text=No+Image";
-  const bg = backdrop && backdrop.trim() ? backdrop : placeholder;
+const PLACEHOLDER = "https://via.placeholder.com/400x225?text=No+Image";
+
+export default function Item({ title = "Untitled", score, overview = "", backdrop = "", onOpen }) {
+  const bg = backdrop && backdrop.trim() ? backdrop : PLACEHOLDER;
+  const matchPct = score ? Math.round(score * 10) : null;
 
   return (
     <div
       className="Item"
       role="article"
       aria-label={title}
-      style={{
-        backgroundImage: `url(${bg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      onClick={() => onOpen && onOpen()}
     >
+      {/* Thumbnail */}
+      <img
+        className="thumb"
+        src={bg}
+        alt={title}
+        loading="lazy"
+        onError={(e) => { e.target.src = PLACEHOLDER; }}
+      />
+
+      {/* Hover overlay — appears below the card */}
       <div className="overlay">
+        {/* Action buttons */}
+        <div className="actions">
+          <button className="card-btn play" title="Play" onClick={(e) => e.stopPropagation()}>
+            ▶
+          </button>
+          <ListToggle />
+          <button className="card-btn" title="Thumbs up" onClick={(e) => e.stopPropagation()}>
+            👍
+          </button>
+          <button
+            className="card-btn more"
+            title="More info"
+            onClick={(e) => { e.stopPropagation(); onOpen && onOpen(); }}
+          >
+            ⌄
+          </button>
+        </div>
+
+        {/* Title */}
         <div className="title">{title}</div>
-        <div className="rating">{score} / 10</div>
-        <div className="plot">{overview || "No description available."}</div>
-        <ListToggle />
+
+        {/* Rating row */}
+        <div className="rating">
+          {matchPct && <span className="match">{matchPct}% Match</span>}
+          <span className="hd-badge">HD</span>
+        </div>
+
+        {/* Plot */}
+        {overview && <div className="plot">{overview}</div>}
       </div>
     </div>
   );
-};
-
-export default Item;
+}

@@ -1,32 +1,20 @@
 import React, { useState } from "react";
 
-const ListToggle = () => {
+export default function ListToggle() {
   const [toggled, setToggled] = useState(false);
 
   return (
-    <div
-      className={`ListToggle ${toggled ? "active" : ""}`}
+    <button
+      className="ListToggle"
       onClick={(e) => {
         e.stopPropagation();
-        setToggled(!toggled);
-      }}
-      role="button"
-      aria-pressed={toggled}
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          setToggled(!toggled);
-        }
+        setToggled((v) => !v);
       }}
       data-toggled={toggled}
+      aria-pressed={toggled}
+      title={toggled ? "Remove from My List" : "Add to My List"}
     >
-      <div>
-        <i aria-hidden="true">+</i>
-        <i aria-hidden="true">✔</i>
-      </div>
-    </div>
+      {toggled ? "✔" : "+"}
+    </button>
   );
-};
-
-export default ListToggle;
+}
