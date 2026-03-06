@@ -8,6 +8,7 @@ import "./App.css";
 
 const API_KEY = "87dfa1c669eea853da609d4968d294be";
 
+// All content rows shown on the homepage
 const ROWS = [
   { title: "Top Picks for You",        url: "trending/all/week" },
   { title: "Trending Now",             url: "trending/movie/day" },
@@ -21,10 +22,10 @@ const ROWS = [
 ];
 
 export default function App() {
-  const [searchResults, setSearchResults] = useState(null);
-  searching
+  const [searchResults, setSearchResults] = useState(null); // null = not searching
   const [modalItem, setModalItem]         = useState(null);
 
+  // Called by Search component whenever query changes
   const handleSearch = useCallback(async (query) => {
     if (!query || !query.trim()) {
       setSearchResults(null);
@@ -38,6 +39,7 @@ export default function App() {
     try {
       const res  = await fetch(url);
       const json = await res.json();
+      // Only show results that have an image
       const filtered = (json.results || []).filter(
         (x) => x.backdrop_path || x.poster_path
       );
@@ -49,12 +51,14 @@ export default function App() {
 
   return (
     <div>
+      {/* Fixed top navigation */}
       <Header onSearch={handleSearch} />
 
       {searchResults ? (
+        /* ── Search results view ── */
         <SearchResults results={searchResults} onOpen={setModalItem} />
       ) : (
-        
+        /* ── Normal home view ── */
         <>
           <Hero onMoreInfo={setModalItem} />
 
@@ -69,8 +73,10 @@ export default function App() {
         </>
       )}
 
+      {/* ── Footer ── */}
       <footer className="Footer">
         <div className="footer-logo">
+          {/* Inline Netflix wordmark */}
           <svg viewBox="0 0 111 30" width="80" height="22" fill="none">
             <path d="M105.06 13.1059L111 30C109.06 29.72 107.13 29.39 105.2 29.01L101.4 18.69L97.59 28.38C95.74 28.01 93.88 27.69 92.03 27.41L97.96 13.01L92.38 0H97.73L101.25 9.67L104.87 0H110.22L105.06 13.1059Z" fill="#E50914"/>
             <path d="M85.82 0V26.56C87.68 26.74 89.53 26.94 91.39 27.16V0H85.82Z" fill="#E50914"/>
@@ -133,6 +139,8 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      {/* ── Detail Modal ── */}
       {modalItem && (
         <Modal item={modalItem} onClose={() => setModalItem(null)} />
       )}
