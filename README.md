@@ -16,6 +16,7 @@ A lightweight, responsive Netflix-style UI built with React. Browse discover lis
 - Footer with links and language selector
 - Safe fallbacks for missing images/data and keyboard accessibility
 
+
 ## 📸 Preview
 
 Quick local preview
@@ -31,34 +32,19 @@ Quick local preview
 Screenshots
 
 - Homepage / Hero
-  ![Homepage preview](https://via.placeholder.com/1000x360?text=Netflix+Clone+Home)
+  ![Homepage preview](https://github.com/MdSaifAli063/Netflix-Clone-react/blob/0ad9eb6455cbc3d7b962afd9fdd1e20e53ec5278/Screenshot%202025-12-07%20001829_edited.png)
 - Search results
-  ![Search preview](https://via.placeholder.com/1000x360?text=Search+Results+Preview)
+  ![Search preview](https://github.com/MdSaifAli063/Netflix-Clone-react/blob/f7b0270bca66b89444efeeed56a976e01dfab105/Screenshot%202025-12-07%20002048_edited.png)
 - Profile menu
-  ![Profile preview](https://via.placeholder.com/420x240?text=Profile+Menu)
+  ![Profile preview](https://github.com/MdSaifAli063/Netflix-Clone-react/blob/51dca2f22c2eeb45c0371aaf461c308a3ad438c7/Screenshot%202025-12-07%20001954_edited.png)
 
-GIF demo
-
-- Short demo (placeholder GIF):  
-  ![Demo GIF](https://via.placeholder.com/900x300?text=Demo+GIF+Placeholder)
-
-How to preview a title in the app
-
-1. Use the search box in the header to find a movie or TV show (the app queries TMDB).
-2. Hover any Item tile to reveal its overlay (title, rating, plot).
-3. Click the circular ListToggle (top-right of the tile) to toggle the quick action state.
-4. Switch user profiles from the top-right profile menu to see profile persistence.
-
-Notes
-
-- The images above are placeholders — replace them with real screenshots or GIFs from your local runs or hosted demo.
-- If you want, I can add a small "Preview" component in-app that opens a modal with larger artwork and details for a clicked Item.
 
 ## 🔧 Prerequisites
 
 - Node.js >= 14
 - npm or yarn
 - TMDB API Key (https://www.themoviedb.org/)
+
 
 ## 🚀 Quick start
 
