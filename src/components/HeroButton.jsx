@@ -1,9 +1,14 @@
 import React from "react";
 
-export default function HeroButton({ primary, text }) {
+export default function HeroButton({ primary, text, icon, onClick }) {
   return (
-    <a href="#" className="Button" data-primary={primary}>
+    <button
+      className="Button"
+      data-primary={primary}
+      onClick={onClick}
+    >
+      {icon && <span className="btn-icon">{icon}</span>}
       {text}
-    </a>
+    </button>
   );
 }
